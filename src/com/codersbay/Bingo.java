@@ -4,47 +4,39 @@ import java.util.Random;
 
 public class Bingo {
     public static void main(String[] args) {
-        int[][] bingo = new int[4][4];
+        int[][] bingo = new int[5][5];
         Random random = new Random();
 
-        int zahl1;
-        int zahl2;
-        int zahl3;
-        int zahl4;
-        int zahl5;
-
-        int zahl6;
-        int zahl7;
-        int zahl8;
-        int zahl9;
-        int zahl10;
-
-        int zahl11;
-        int zahl12;
-//        int zahl13;
-        int zahl14;
-        int zahl15;
-
-        int zahl16;
-        int zahl17;
-        int zahl18;
-        int zahl19;
-        int zahl20;
-
-        int zahl21;
-        int zahl22;
-        int zahl23;
-        int zahl24;
-        int zahl25;
-
-
         for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
 
+                int tmp = random.nextInt(16);
+                if (tmp == 0) {
+                    tmp += 1;
+                }
+
+                tmp += i * 15;
+
+                while (tmp == bingo[0][i] ||    //check doublets
+                        tmp == bingo[1][i] ||
+                        tmp == bingo[2][i] ||
+                        tmp == bingo[3][i]) {
+                    tmp = random.nextInt(16);
+                    tmp += i * 15;
+                }
+                bingo[j][i] = tmp;
+            }
         }
-
-
-        bingo[2][2] = 0;
-        System.out.printf("%2d %2d %2d %2d %2d", bingo[][]);
-
+        //OUTPUT
+        for (int y = 0; y < 5; y++) {
+            for (int x = 0; x < 5; x++) {
+                if (x == 2 && y == 2) {
+                    System.out.printf(" %2s ", "FS");
+                } else {
+                    System.out.printf(" %2d ", bingo[y][x]);
+                }
+            }
+            System.out.println();
+        }
     }
 }
