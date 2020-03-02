@@ -4,6 +4,13 @@ import java.util.Random;
 
 public class Bingo {
     public static void main(String[] args) {
+
+        int[][] bingo = generateBingo();
+        showBingo(bingo);
+
+    }
+
+    private static int[][] generateBingo() {
         int[][] bingo = new int[5][5];
         Random random = new Random();
 
@@ -27,6 +34,10 @@ public class Bingo {
                 bingo[j][i] = tmp;
             }
         }
+        return bingo;
+    }
+
+    private static void showBingo(int[][] bingo) {
         //OUTPUT
         for (int y = 0; y < 5; y++) {
             for (int x = 0; x < 5; x++) {
