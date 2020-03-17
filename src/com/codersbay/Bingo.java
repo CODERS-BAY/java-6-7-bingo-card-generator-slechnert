@@ -18,8 +18,8 @@ public class Bingo {
             for (int j = 0; j < 5; j++) {
 
                 int tmp = random.nextInt(16);
-                if (tmp == 0) {
-                    tmp += 1;
+                while (tmp == 0) {
+                    tmp = random.nextInt(16);
                 }
 
                 tmp += i * 15;
